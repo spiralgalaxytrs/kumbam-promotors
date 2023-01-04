@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="Kumbam Promoters">
+  <link href="assets/images/logo/logo-footer.png" rel="icon">
+  <title>Kumbam Promoters</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Barlow:400,500,600,700%7cRoboto:400,500,700&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/libraries.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script
+  src="https://code.jquery.com/jquery-3.6.3.min.js"
+  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+  crossorigin="anonymous"></script>
+  <script>
+		$(function(){
+			$("#upper").load("upper.html");
+			$("#lower").load("lower.html");
+		});
+	</script>
+</head>
+
+<body>
+  <div id="upper"></div>
+
+    <!-- ========================= 
+            Google Map
+    =========================  -->
+    <section class="google-map p-0">
+      <div id="map" style="height: 500px;"></div>
+      <script src="assets/js/google-map.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqrqPZOVegy1VIdyIcndxZY9YGoK-x0Yo&amp;callback=initMap"
+        async defer></script>
+    </section><!-- /.GoogleMap -->
+
+    <!-- ==========================
+        contact layout 1
+    =========================== -->
+    <section class="contact-layout1 pt-0 pb-70">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="contact-panel">
+              <div class="contact__panel-info">
+                <div class="contact__panel-info-top">
+                  <div class="contact-info-box">
+                    <h4 class="contact__info-box-title">Our Location</h4>
+                    <ul class="contact__info-list list-unstyled">
+                      <li>#-278A, NPN Complex, Arugampalayam, Karuvalur Main Road, Coimbatore - 641 107.</li>
+                    </ul><!-- /.contact__info-list -->
+                  </div><!-- /.contact-info-box -->
+                  <div class="contact-info-box">
+                    <h4 class="contact__info-box-title">Quick Contact</h4>
+                    <ul class="contact__info-list list-unstyled">
+                      <li>Email: <a href="mailto:Kumbam.promoters@gmail.com">Kumbam.promoters@gmail.com</a></li>
+                      <li>Support: <a href="mailto:Kumbam.promoters@gmail.com">Kumbam.promoters@gmail.com</a></li>
+                    </ul><!-- /.contact__info-list -->
+                  </div><!-- /.contact-info-box -->
+                </div><!-- /.contact__panel-info-top -->
+                <div class="contact__panel-info-bottom">
+                  <strong class="contact__panel-info-title">We will get back to you within 24 hours, or call us
+                    everyday, 09:00 AM - 12:00 PM</strong>
+                  <div class="contact__number d-flex align-items-center">
+                    <i class="icon-phone"></i>
+                    <a href="tel:9597263339">95972 63339</a>
+                  </div>
+                </div><!-- /.contact__panel-info-bottom -->
+              </div><!-- /.contact__panel-info -->
+              <form method="post" action="http://7oroof.com/demos/promina/assets/php/contact.php" id="contactForm" class="contact__panel-form">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h4 class="contact__panel-title">Get In Touch</h4>
+                    <p class="contact__panel-desc mb-40">Complete control over products allows us to ensure our
+                      customers receive the best quality prices and service. We take great pride in everything that we
+                      do in our factory.</p>
+                  </div>
+                  <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Name" id="contact-name" name="contact-name"
+                        required>
+                    </div>
+                  </div><!-- /.col-lg-6 -->
+                  <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group">
+                      <input type="email" class="form-control" placeholder="Email" id="contact-email"
+                        name="contact-email" required>
+                    </div>
+                  </div><!-- /.col-lg-6 -->
+              
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group">
+                      <textarea class="form-control" placeholder="Additional Details!" placeholder="Message"
+                        id="contact-messgae" name="contact-messgae" required></textarea>
+                    </div>
+                  </div><!-- /.col-lg-12 -->
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <button type="submit" class="btn btn__primary btn__block  btn__lg">
+                      <span class="mx-2">Submit Request</span><i class="icon-arrow-right mx-2"></i>
+                    </button>
+                    <div class="contact-result"></div>
+                  </div><!-- /.col-lg-12 -->
+                </div><!-- /.row -->
+              </form>
+            </div><!-- /.contact__panel -->
+          </div><!-- /.col-lg-12 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.contact layout 1 -->
+
+    
+
+    <!-- ========================
+      Footer
+    ========================== -->
+    <div id="lower"></div>
+
+<script>
+  const form = document.getElementById("form");
+const result = document.getElementById("result");
+
+form.addEventListener("submit", function (e) {
+  const formData = new FormData(form);
+  e.preventDefault();
+  var object = {};
+  formData.forEach((value, key) => {
+    object[key] = value;
+  });
+  var json = JSON.stringify(object);
+  result.innerHTML = "Please wait...";
+
+  fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: json
+  })
+    .then(async (response) => {
+      let json = await response.json();
+      if (response.status == 200) {
+        result.innerHTML = json.message;
+        result.classList.remove("text-gray-500");
+        result.classList.add("text-green-500");
+      } else {
+        console.log(response);
+        result.innerHTML = json.message;
+        result.classList.remove("text-gray-500");
+        result.classList.add("text-red-500");
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+      result.innerHTML = "Something went wrong!";
+    })
+    .then(function () {
+      form.reset();
+      setTimeout(() => {
+        result.style.display = "none";
+      }, 5000);
+    });
+});
+
+</script>
+
+</body>
+
+</html>
