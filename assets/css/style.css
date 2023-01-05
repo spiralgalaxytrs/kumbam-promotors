@@ -4011,7 +4011,8 @@ textarea.form-control {
 }
 
 #scrollTopBtn.actived {
-    right: 30px;
+    right: 22px;
+    rop: 448px;
     opacity: 1
 }
 
