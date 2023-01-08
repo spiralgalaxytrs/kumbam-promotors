@@ -12,7 +12,7 @@
     href="https://fonts.googleapis.com/css?family=Barlow:400,500,600,700%7cRoboto:400,500,700&amp;display=swap">
   <link rel="stylesheet" href="assets/css/libraries.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script
+  <script                      
   src="https://code.jquery.com/jquery-3.6.3.min.js"
   integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
   crossorigin="anonymous"></script>
@@ -610,11 +610,15 @@
     </section> -->
     <div id="lower"></div>
 
-   <script>
-    function onloadPage(){
-document.getElementById('pre-load').style.display='none'
-    }
-   </script>
+
+    <script>
+      const myTimeout = setTimeout(onloadPage, 5000);
+      
+      function onloadPage() {
+        document.getElementById('pre-load').style.display='none'
+      }
+      </script>
+
 
 
 </body>
