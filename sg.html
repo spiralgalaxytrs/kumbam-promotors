@@ -24,7 +24,16 @@
 	</script>
 </head>
 
-<body>
+<body onload="onloadPage()">
+
+  <div id="pre-load">
+    <div id="loader" class="loader">
+      <div class="loader-container">
+        <div class="loader-icon"><img src="assets/images/logo/2.png"
+            alt="Konstruk - Construction & Building Html Template "></div>
+      </div>
+    </div>
+  </div>
   <div id="upper"></div>
 
     <!-- ========================
@@ -340,6 +349,15 @@
         Footer
       ========================== -->
       <div id="lower"></div>
+
+
+      <script>
+        const myTimeout = setTimeout(onloadPage, 5000);
+        
+        function onloadPage() {
+          document.getElementById('pre-load').style.display='none'
+        }
+        </script>
 
 </body>
 
