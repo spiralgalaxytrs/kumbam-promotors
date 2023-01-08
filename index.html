@@ -24,8 +24,8 @@
 	</script>
 </head>
 
-<body>
-  
+<body onload="onloadPage()">
+
   <div id="pre-load">
     <div id="loader" class="loader">
       <div class="loader-container">
@@ -610,7 +610,11 @@
     </section> -->
     <div id="lower"></div>
 
-   
+   <script>
+    function onloadPage(){
+document.getElementById('pre-load').style.display='none'
+    }
+   </script>
 
 
 </body>
