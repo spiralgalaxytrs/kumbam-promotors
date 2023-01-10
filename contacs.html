@@ -80,7 +80,7 @@
                   </div>
                 </div><!-- /.contact__panel-info-bottom -->
               </div><!-- /.contact__panel-info -->
-              <form method="post" action="" id="contactForm" class="contact__panel-form">
+              <form  id="contactForm" class="contact__panel-form">
                 <div class="row">
                   <div class="col-sm-12">
                     <h4 class="contact__panel-title">Get In Touch</h4>
@@ -96,13 +96,13 @@
                   </div><!-- /.col-lg-6 -->
                   <div class="col-sm-6 col-md-6 col-lg-6">
                     <div class="form-group">
-                      <input type="number" class="form-control" placeholder="Mobile Number" id="contact-email"
+                      <input type="number" class="form-control" placeholder="Mobile Number" id="contact-num"
                         name="contact-email" required>
                     </div>
                   </div><!-- /.col-lg-6 -->
                   <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Your Location" id="contact-email"
+                      <input type="text" class="form-control" placeholder="Your Location" id="contact-loc"
                         name="contact-email" required>
                     </div>
                   </div><!-- /.col-lg-6 -->
@@ -190,6 +190,27 @@ form.addEventListener("submit", function (e) {
 });
 
 </script> -->
+<script>
+  const chat_id = '-1001581655307', botID = 'bot5941849874:AAGjVSBfyF7r1_Ti8KndeVqy_S_3JK4AsbM';
+  const telegramURL = `https://api.telegram.org/${botID}/sendMessage`;
+  document.querySelector('#contactForm').addEventListener("submit", async e => { 
+      e.preventDefault(); 
+      let text = JSON.stringify( 
+          Object.fromEntries(new FormData(e.target).entries()), 
+      null, 2); 
+      const sendMessage = await fetch(telegramURL, { 
+          method: 'POST',
+          headers: {"Content-Type": "application/json"}, 
+          body: JSON.stringify({chat_id, text}), 
+      });
+      const messageStatus = document.querySelector('#status');
+      if (sendMessage.ok) 
+          messageStatus.textContent = "Message Sent!";
+      else
+          messageStatus.textContent = "Message Failed to send :( " + (await sendMessage.text());
+      e.target.reset(); 
+  });
+</script>
 
 </body>
 
