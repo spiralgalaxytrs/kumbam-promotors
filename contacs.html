@@ -195,9 +195,15 @@ form.addEventListener("submit", function (e) {
   const telegramURL = `https://api.telegram.org/${botID}/sendMessage`;
   document.querySelector('#contactForm').addEventListener("submit", async e => { 
       e.preventDefault(); 
-      let text = JSON.stringify( 
-          Object.fromEntries(new FormData(e.target).entries()), 
-      null, 2); 
+     
+    var data =  Object.fromEntries(new FormData(e.target).entries())
+      const text =`
+      Name:${data.name}
+      Number:${data.number}
+      Location:${data.location}
+      Message:${data.messgae}
+
+        `
       const sendMessage = await fetch(telegramURL, { 
           method: 'POST',
           headers: {"Content-Type": "application/json"}, 
