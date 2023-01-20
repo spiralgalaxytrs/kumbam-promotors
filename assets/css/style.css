@@ -1347,6 +1347,16 @@ h6 {
     padding-bottom: 180px
 }
 
+@media (max-width: 650px) {
+    .page-title-layout6 {
+        background-image: url(assets/images/page-titles/tgc.jpg);
+    background-size: cover;
+    background-position: center center;
+        
+    }
+   
+  }
+
 .page-title-layout6 .pagetitle__heading {
     font-size: 64px
 }
