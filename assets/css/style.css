@@ -1034,11 +1034,11 @@ select {
     background-size: auto !important
 }
 
-.bg-parallax {
-    background-attachment: fixed
-}
+    /* .bg-parallax {
+        background-attachment: fixed
+    } */
 
-.bg-overlay:before {
+/* .bg-overlay:before {
     content: "";
     position: absolute;
     top: 0;
@@ -1049,11 +1049,11 @@ select {
     height: 100%;
     z-index: -1;
     background-color: rgba(27, 26, 26, .15)
-}
+} */
 
-.bg-overlay-2:before {
+/* .bg-overlay-2:before {
     background-color: rgba(27, 26, 26, .1)
-}
+} */
 
 .bg-overlay-3:before {
     background-color: rgba(27, 26, 26, .05)
@@ -1398,8 +1398,8 @@ h6 {
 
 @media (min-width:320px) and (max-width:767px) {
     .page-title {
-        padding-top: 305px;
-        padding-bottom: 134px
+        padding-top: 200px;
+        padding-bottom: 50px
     }
 
     .page-title .pagetitle__subheading {
